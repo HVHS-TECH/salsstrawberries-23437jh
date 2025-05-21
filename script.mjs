@@ -78,14 +78,19 @@ var name = document.getElementById("name").value;
 var favoriteFruit = document.getElementById("favoriteFruit").value;
 var fruitQuantity = document.getElementById("fruitQuantity").value;
  const dbReference= ref(FB_GAMEDB, "UserID/UserInformation");
- var UserInformation = {Age: 69, Name: "Max"};
+ var UserInformation = {name: name, favoriteFruit: favoriteFruit, fruitQuantity: fruitQuantity };
     set(dbReference, UserInformation).then(() => {
         console.log("Data sucessfully sent to Database")
+        console.log(name);
+        console.log(favoriteFruit);
+        console.log(fruitQuantity);
         console.log(UserInformation);
     }).catch((error) => {
        console.log(error)
        console.log("Error happened");
     });
+
+    
 }
 
 // exsporting functions
